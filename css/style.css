@@ -1,0 +1,16 @@
+.bar {
+    height: 18px;
+    background: green;
+}
+.progress{
+	margin-top: 10px;
+}
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}
