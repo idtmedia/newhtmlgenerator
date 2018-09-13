@@ -202,7 +202,6 @@
     <script src="js/scripts.js"></script>
     <script src="lib/jQuery-File-Upload-9.22.0/js/vendor/jquery.ui.widget.js"></script>
 	<script src="lib/jQuery-File-Upload-9.22.0/js/jquery.iframe-transport.js"></script>
-	<!--<script src="lib/jQuery-File-Upload-9.22.0/js/jquery.fileupload-ui.js"></script>-->
 	<script src="lib/jQuery-File-Upload-9.22.0/js/jquery.fileupload.js"></script>
 	<!-- include summernote css/js for bootstrap 4 -->
 	 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
@@ -249,8 +248,7 @@ $(document).ready(function() {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                //$('<p/>').text(file.name).appendTo('#files');
-				$('#files').html('<p>'+file.name+'</p>');
+                $('<p/>').text(file.name).appendTo('#files');
 				//console.log(data);
 				$('#banner').val(file.url);
             });
@@ -267,8 +265,7 @@ $(document).ready(function() {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                //$('<p/>').text(file.name).appendTo('#brandlogo_files');
-				$('#brandlogo_files').html('<p>'+file.name+'</p>');
+                $('<p/>').text(file.name).appendTo('#brandlogo_files');
 				//console.log(data);
 				$('#brand').val(file.url);
             });
@@ -285,8 +282,7 @@ $(document).ready(function() {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                //$('<p/>').text(file.name).appendTo('#videopreview_files');
-				$('#videopreview_files').html('<p>'+file.name+'</p>');
+                $('<p/>').text(file.name).appendTo('#videopreview_files');
 				//console.log(data);
 				$('#video').val(file.url);
             });
@@ -308,8 +304,7 @@ $(document).ready(function() {
         },*/
         done: function (e, data) {			
             $.each(data.result.files, function (index, file) {
-                $('<p/>').html(file.name+' <button class="btn btn-danger btn-delete" data-type="DELETE" data-url="'+file.url+'"><i class="glyphicon glyphicon-trash"></i><span>Remove</span></button>').appendTo('#productimages_files').appendTo('#productimages_files');
-				//$('#videopreview_files').html('<p>'+file.name+'</p>');				
+                $('<p/>').text(file.name).appendTo('#productimages_files');				
 				//console.log(data);		
 				$('#pimages').val($('#pimages').val() + '|' + file.url);
 				
@@ -341,17 +336,6 @@ $(document).ready(function() {
     {
 		$(this).parents('.entry:first').remove();
 
-		e.preventDefault();
-		return false;
-	});
-	$(document).on('click', '.btn-delete', function(e){
-		if(($(this).data('type')==='DELETE')&&($(this).data('url')!=='')){
-			//$('#pimages').val($('#pimages').val() + '|' + file.url);
-			$(this).parent().remove();
-			$('#pimages').val($('#pimages').val().replace('|'+$(this).data('url'), ''));
-			//$('#pimages').text().replace('|'+$(this).data('url'), '');
-			console.log($('#pimages').val());
-		}		
 		e.preventDefault();
 		return false;
 	});
